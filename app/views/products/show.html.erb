@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
+
+<p class="container">
+  <%#= image_tag @product.avatar.url %>
+  <%= image_tag @product.avatar.url(:medium) %>
+  <%#= image_tag @product.avatar.url(:thumb) %>
+</p>
+
+
 <div class="container" style="text-align: left">
   <p>
     <strong>Name:</strong>
@@ -22,12 +30,12 @@
 
   <p>
     <strong>Category:</strong>
-    <%= @product.category %>
+    <%= @product.category.try(:name) %>
   </p>
 
   <p>
     <strong>Brand:</strong>
-    <%= @product.brand %>
+    <%= @product.brand.try(:name) %>
   </p>
 </div>
 <div class="container" style="text-align: left;">
