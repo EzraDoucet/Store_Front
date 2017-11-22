@@ -31,7 +31,7 @@ categories = [
            'Football',
            'Climbing',
            'Apparell',
-           'Basball'
+           'Baseball'
 ]
 
 categories.each do |category_name|

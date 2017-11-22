@@ -11,7 +11,7 @@ namespace :db do
   25.times do
    product = Product.create(name: Faker::Ancient.god, price: rand(1.00..2000.00),
     quantity: rand(1..25), description: Faker::MostInterestingManInTheWorld.quote,
-    brand_id: rand(1..9), category_id: rand(1..6))
+    brand_id: rand(1..10), category_id: rand(1..7))
   end
   puts "Products made"
  end

@@ -2,7 +2,10 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :brand
 
-  # validates :name, presence: true, length: {minimum: 3}, uniqueness: true
+  validates :name, presence: true, length: {minimum: 3}
+  validates_presence_of :name, :price, :quantity, :brand, :category
+  validates_numericality_of :price, greater_than_or_equal_to: 0.01
+  validates_numericality_of :quantity, greater_than_or_equal_to: 0
 
   has_attached_file :avatar, styles: {medium: "300x300#", thumb: "100x100#{}"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
