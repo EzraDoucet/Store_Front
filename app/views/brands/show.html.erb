@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<div class="container" style="text-align: left;">
+<div class="container lefted">
  <h1>
    <strong>Name:</strong>
    <%= @brand.name %>
@@ -14,7 +14,7 @@
   <% end %>
 </ul>
 </div>
-<div class="container" style="text-align: left;">
+<div class="container lefted">
   <div class="btn-group" role="group" aria-label="..">
     <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_brand_path(@brand) %></button>
     <button type="button" class="btn btn-danger"><%= link_to 'Back', brands_path %></button>

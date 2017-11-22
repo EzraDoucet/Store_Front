@@ -1,8 +1,10 @@
-<div class="container" style="text-align: left;">
+<div class="container lefted">
 <h1>Editing product</h1>
 </div>
+
 <%= render 'form', product: @product %>
-<div class="container" style="text-align: left;">
+
+<div class="container lefted">
   <div class="btn-group" role="group" aria-label="..">
     <button type="button" class="btn btn-default"><%= link_to 'Show', @product %></button>
     <button type="button" class="btn btn-danger"><%= link_to 'Back', products_path %></button>

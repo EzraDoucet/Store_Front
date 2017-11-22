@@ -1,6 +1,6 @@
 <%= simple_form_for(@product) do |f| %>
   <%= f.error_notification %>
-  <div class="container" style="text-align: left;">
+  <div class="container lefted">
     <div class="form-inputs">
       <%= f.input :name %>
       <%= f.input :price, input_html: {min: 0} %>
@@ -15,9 +15,8 @@
 
       <%= f.input :avatar, as: :file %>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, class: 'btn btn-success' %>
+    <div class="btn-group form-actions" role="group" aria-label="..">
+      <%= f.button :submit, {class: 'btn btn-success', type: 'button'} %>
     </div>
   </div>
 <% end %>

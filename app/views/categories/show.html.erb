@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container" style="text-align: left;">
+<div class="container lefted">
  <p>
    <strong>Name:</strong>
    <%= @category.name %>
  </p>
 </div>
-<div class="container" style="text-align: left;">
+<div class="container lefted">
   <div class="btn-group" role="group" aria-label="..">
     <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_category_path(@category) %></button>
     <button type="button" class="btn btn-danger"><%= link_to 'Back', categories_path %></button>
