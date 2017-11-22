@@ -1,6 +1,11 @@
+<div class="container" style="text-align: left;">
 <h1>Editing Brand</h1>
-
+</div>
 <%= render 'form', brand: @brand %>
 
-<%= link_to 'Show', @brand %> |
-<%= link_to 'Back', brands_path %>
+<div class="container" style="text-align: left;">
+  <div class="btn-group" role="group" aria-label="..">
+   <button type="button" class="btn btn-default"><%= link_to 'Show', @brand %></button>
+   <button type="button" class="btn btn-danger"><%= link_to 'Back', brands_path %></button>
+  </div>
+</div>

@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div class="container" style="text-align: left;">
+ <p>
+   <strong>Name:</strong>
+   <%= @category.name %>
+ </p>
+</div>
+<div class="container" style="text-align: left;">
+  <div class="btn-group" role="group" aria-label="..">
+    <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_category_path(@category) %></button>
+    <button type="button" class="btn btn-danger"><%= link_to 'Back', categories_path %></button>
+  </div>
+</div>

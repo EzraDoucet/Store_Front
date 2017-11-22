@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @brand.name %>
-</p>
-
-<%= link_to 'Edit', edit_brand_path(@brand) %> |
-<%= link_to 'Back', brands_path %>
+<div class="container" style="text-align: left;">
+ <h1>
+   <strong>Name:</strong>
+   <%= @brand.name %>
+ </h1>
+<!-- Add list of items by brand -->
+</div>
+<div class="container" style="text-align: left;">
+  <div class="btn-group" role="group" aria-label="..">
+    <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_brand_path(@brand) %></button>
+    <button type="button" class="btn btn-danger"><%= link_to 'Back', brands_path %></button>
+  </div>
+</div>
