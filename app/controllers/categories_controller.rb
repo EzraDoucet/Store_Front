@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
@@ -70,5 +71,15 @@ class CategoriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:name)
+    end
+
+    def authenticate_admin!
+      unless current_user.try(:admin?)
+        raise SecurityError
+      end
+    end
+
+    rescue_from SecurityError do
+      redirect_back(fallback_location: root_path, notice: "You don't have access to that!")
     end
 end

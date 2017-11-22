@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  # before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_admin!, except: [:index, :show]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
 
@@ -65,6 +66,18 @@ class ProductsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def authenticate_admin!
+      unless current_user.try(:admin?)
+        raise SecurityError
+        # Let them do stuff
+      end
+    end
+
+    rescue_from SecurityError do
+      redirect_back(fallback_location: root_path, notice: "You don't have access to that!")
+
+    end
+
     def set_product
       @product = Product.find(params[:id])
     end
