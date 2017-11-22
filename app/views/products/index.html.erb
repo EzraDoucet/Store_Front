@@ -20,7 +20,7 @@
     </thead>
 
     <tbody>
-      <% @products.each do |product| %>
+      <% @products.order('name').each do |product| %>
         <tr>
           <td><%= product.name %></td>
           <td><%= number_to_currency(product.price) %></td>

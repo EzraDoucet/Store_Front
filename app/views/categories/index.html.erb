@@ -10,7 +10,7 @@
     </thead>
 
     <tbody>
-      <% @categories.each do |category| %>
+      <% @categories.order('name').each do |category| %>
         <tr>
           <td><%= category.name %></td>
           <td><%= link_to fa_icon('eye'), category %></td>

@@ -14,7 +14,7 @@
     </thead>
 
     <tbody>
-      <% @brands.each do |brand| %>
+      <% @brands.order('name').each do |brand| %>
         <tr>
           <td><%= brand.name %></td>
           <td><%= link_to fa_icon('eye'), brand %></td>
