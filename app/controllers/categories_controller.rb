@@ -73,13 +73,13 @@ class CategoriesController < ApplicationController
       params.require(:category).permit(:name)
     end
 
-    def authenticate_admin!
-      unless current_user.try(:admin?)
-        raise SecurityError
-      end
-    end
+    # def authenticate_admin!
+    #   unless current_user.try(:admin?)
+    #     raise SecurityError
+    #   end
+    # end
 
-    rescue_from SecurityError do
-      redirect_back(fallback_location: root_path, notice: "You don't have access to that!")
-    end
+    # rescue_from SecurityError do
+    #   redirect_back(fallback_location: root_path, notice: "You don't have access to that!")
+    # end
 end
