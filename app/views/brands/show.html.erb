@@ -10,7 +10,7 @@
 <!-- Add list of items by brand -->
 <ul>
  <% @brand.products.order('name').each do |products_by| %>
-  <li> <%= link_to products_by.name, products_path(products_by) %></li>
+  <li> <%= link_to products_by.name, product_path(products_by) %></li>
   <% end %>
 </ul>
 </div>

@@ -5,6 +5,14 @@
    <strong>Name:</strong>
    <%= @category.name %>
  </p>
+<ul>
+
+ <% @category.products.order('name').each do |products_in| %>
+  <li><%= link_to products_in.name, product_path(products_in) %></li>
+ <% end %>
+</ul>
+
+
 </div>
 <div class="container lefted">
   <div class="btn-group" role="group" aria-label="..">
