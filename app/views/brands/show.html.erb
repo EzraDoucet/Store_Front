@@ -4,7 +4,15 @@
    <strong>Name:</strong>
    <%= @brand.name %>
  </h1>
+<h3>
+ <strong>Prodycts By:</strong>
+</h3>
 <!-- Add list of items by brand -->
+<ul>
+ <% @brand.products.order('name').each do |products_by| %>
+  <li> <%= link_to products_by.name, products_path(products_by) %></li>
+  <% end %>
+</ul>
 </div>
 <div class="container" style="text-align: left;">
   <div class="btn-group" role="group" aria-label="..">
