@@ -2,18 +2,30 @@
  <h1>Howdy and Welcome to the Super Mondo Awesome Store</h1>
  <p>Your one-stop-shop for all your garbage needs</p>
 
+
  <div class="row">
+  <% if params[:category_id] %>
+   <h3>All <%= @category.name %></h3>
+  <% else %>
+   <h3>All Products</h3>
+  <% end %>
+
+  <% if @products.empty? %>
+   <h2>There are no products in <%= @category.name %></h2>
+  <% end %>
   <% @products.each do |product| %>
    <div class="col-sm-4">
     <div class="panel panel-default">
      <div class="panel-body">
       <%= image_tag product.avatar.url(:medium) %>
-      <span class="pull-right text-right">
+      <!-- <span class="pull-right text-right"> -->
        <h5><%=  number_to_currency(product.price) %></h5>
-      </span>
+      <!-- </span> -->
+      <!-- <h3><%= link_to product.name, product_path(product) %></h3> -->
+      <h3><%= product.name %></h3>
+
       <a href="#" data-toggle="modal" data-target="#myModal_<%= product.id %>">
-       <h5><%= product.name %></h5>
-       <small>quick info</small>
+              <small class="btn btn-success">quick info</small>
       </a>
 
      </div>
