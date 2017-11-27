@@ -9,6 +9,7 @@
     <caption>Products in stock at Super Mondo Awesome Store</caption>
     <thead>
       <tr>
+        <th>Image</th>
         <th>Name</th>
         <th>Price</th>
         <th>Quantity</th>
@@ -22,6 +23,7 @@
     <tbody>
       <% @products.order('name').each do |product| %>
         <tr>
+          <td><%= image_tag product.avatar.url(:thumb) %></td>
           <td><%= product.name %></td>
           <td><%= number_to_currency(product.price) %></td>
           <td><%= product.quantity %></td>
