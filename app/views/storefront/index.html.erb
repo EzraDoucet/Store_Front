@@ -1,3 +1,4 @@
+
 <div class="container centered">
   <p id="notice" style="color: red"><strong> <%= notice %></strong></p>
 </div>
@@ -8,6 +9,7 @@
 
 
  <div class="row">
+  <% @products = @products.paginate(:page => params[:page], :per_page => 9) %>
   <% if params[:category_id] %>
    <h3>All <%= @category.name %></h3>
   <% else %>
@@ -59,5 +61,6 @@
 
   <% end %>
 
+  <%= will_paginate @products %>
  </div>
 </div>

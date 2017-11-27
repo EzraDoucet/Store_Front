@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # *** My Gems ***
 gem 'stamp'
 gem 'simple_form'
+gem 'will_paginate', '~> 3.1.0'
 
 # ** Style Sheets **
 gem 'font-awesome-rails'
