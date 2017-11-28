@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :category
   belongs_to :brand
+  has_many :line_items
+  before_destroy :ensure_not_referenced_by_any_line_item
 
   validates :name, presence: true, length: {minimum: 3}
   validates_presence_of :name, :price, :quantity, :brand, :category
@@ -15,6 +17,19 @@ class Product < ApplicationRecord
    where("name LIKE ? OR description LIKE ?", "%#{search_string}%", "%#{search_string}%")
 
   end
+
+  private
+
+  def ensure_not_referenced_by_any_line_item
+    if line_items.empty
+      return true
+    else
+      errors.add(:base, 'Line Items Present')
+      return false
+    end
+  end
+
+
 end
 
 # == Schema Information
