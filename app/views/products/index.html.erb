@@ -9,7 +9,16 @@
 <div class="container centered">
   <table class="table table-striped table-hover table-responsive{-sm|-md|-lg|-xl}">
     <caption>Products in stock at Super Mondo Awesome Store</caption>
+    <%= form_tag(products_path, method: :get, role: 'search', class:"navbar-form") do %>
+      <div class="form-group">
+        <%= text_field_tag(:search, params[:search], placeholder: "Search Products", class: 'form_control input-sm') %>
+      </div>
+      <%= submit_tag('Search', class: 'btn btn-default btn-sm') %>
+      <p><%= link_to 'See All Products', products_path, class: 'btn btn-default btn-sm' %></p>
+      <% end %>
+
     <thead>
+
       <tr>
         <th>Image</th>
         <th>Name</th>
