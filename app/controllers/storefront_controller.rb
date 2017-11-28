@@ -9,8 +9,12 @@ class StorefrontController < ApplicationController
    elsif params[:category_id]
     @category = Category.find(params[:category_id])
     @products = Product.where(category_id: @category.id)
-   else
+
+   elsif params[:show_all]
     @products = Product.all
+
+   else
+    @products = Product.all.paginate(:page => params[:page], :per_page => 9)
    end
 
 

@@ -9,7 +9,7 @@
 
 
  <div class="row">
-  <% @products = @products.paginate(:page => params[:page], :per_page => 9) %>
+  <%# @products = @products.paginate(:page => params[:page], :per_page => 9) %>
   <% if params[:category_id] %>
    <h3>All <%= @category.name %></h3>
   <% else %>
@@ -21,9 +21,9 @@
   <% end %>
   <% @products.each do |product| %>
    <div class="col-sm-4">
-    <div class="panel panel-default">
+    <div class="panel panel-default store-panel">
      <div class="panel-body">
-      <%= image_tag product.avatar.url(:medium) %>
+      <%= image_tag product.avatar.url(:medium), class: "img-responsive" %>
       <!-- <span class="pull-right text-right"> -->
        <h5><%=  number_to_currency(product.price) %></h5>
       <!-- </span> -->
@@ -31,7 +31,7 @@
       <h3><%= product.name %></h3>
 
       <a href="#" data-toggle="modal" data-target="#myModal_<%= product.id %>">
-              <small class="btn btn-success">quick info</small>
+              <small class="btn btn-success">Quick Info</small>
       </a>
 
       <%= button_to 'Add To Cart', line_items_path(product_id: product), class: 'btn btn-warning btn-sm' %>
@@ -64,7 +64,14 @@
 
 
   <div class="apple_pagination">
-    <%= will_paginate @products %>
+    <% if params[:show_all] == false || params[:show_all] == nil  %>
+      <%= will_paginate @products %>
+    <% else %>
+      <% @products %>
+
+    <% end %>
+    <br>
+    <%= link_to "All Products", shop_path(show_all: true), class: "btn btn-success btn-sm" %>
   </div>
  </div>
 </div>
