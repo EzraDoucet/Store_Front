@@ -64,17 +64,17 @@
 
 
   <div class="apple_pagination">
-    <% if params[:category_id] != nil %>
-      <%= will_paginate @products %>
-    <% elsif params[:show_all] == false || params[:show_all] == nil  %>
-      <%= will_paginate @products %>
 
+    <% if params[:show_all] == false || params[:show_all] == nil && params[:category_id] == nil  %>
+      <%= will_paginate @products %>
+      <div class="all_link">
+      <%= link_to "All Products", shop_path(show_all: true), class: "btn btn-success btn-sm" %></div>
     <% else %>
       <% @products %>
 
     <% end %>
     <br>
-    <%= link_to "All Products", shop_path(show_all: true), class: "btn btn-success btn-sm" %>
+
   </div>
  </div>
 </div>

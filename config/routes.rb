@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'about' =>'storefront#about'
 
   resource :cart, only: [:edit, :update, :destroy]
-  resources :line_items, only: [:create, :destroy]
+  resources :line_items, only: [:create, :destroy, :edit]
 
   devise_for :users
  scope :admin do
