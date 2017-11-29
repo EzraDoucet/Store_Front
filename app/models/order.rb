@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :line_items, dependent: :destroy
+
+  PAYMENT_TYPES = ['Check', 'Credit Cart', 'Pay Pal', 'COD', 'Bitcoin']
 end
 
 # == Schema Information

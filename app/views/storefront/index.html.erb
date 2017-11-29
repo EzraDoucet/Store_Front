@@ -68,7 +68,7 @@
     <% if params[:show_all] == false || params[:show_all] == nil && params[:category_id] == nil  %>
       <%= will_paginate @products %>
       <div class="all_link">
-      <%= link_to "All Products", shop_path(show_all: true), class: "btn btn-success btn-sm" %></div>
+      <%= link_to "All Products", shop_path(show_all: true), class: "btn btn-info btn-sm" %></div>
     <% else %>
       <% @products %>
 
