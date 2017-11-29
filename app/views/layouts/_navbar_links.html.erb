@@ -34,6 +34,12 @@
     </li>
 
     <% end %>
+
+
+
+    <% if session[:cart_id] %>
+      <li><%= link_to fa_icon('shopping-cart', text: 'Your Cart'), edit_cart_path %></li>
+    <% end %>
     <!-- <div class="form-group">
       <input type="text" class="form-control" placeholder="Search">
     </div>
