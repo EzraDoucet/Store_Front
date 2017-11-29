@@ -7,7 +7,6 @@ class LineItem < ApplicationRecord
    price * quantity
   end
 
-
 end
 
 # == Schema Information
