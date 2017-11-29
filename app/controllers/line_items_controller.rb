@@ -16,26 +16,32 @@ class LineItemsController < ApplicationController
  end
 
  def destroy
-   # @line_item.destroy
-   #  respond_to do |format|
-   #    format.html { redirect_to products_url, notice: 'Item Deleted From Cart.' }
-   #    format.json { head :no_content }
-   #  end
 
-  if @line_item.destroy
-   session[:line_item_id] = nil
-   flash[:notice] = "Your Item Was Successfully Destroyed"
-   redirect_to edit_cart_path
-  else
-   flash[:notice] = "Couldn't Delete Your Item...Sorry!"
-   redirect_to edit_cart_path
+  @line_item = LineItem.find(params[:id])
+
+  #  if @line_item.destroy
+  #   flash[:notice] = 'Item Deleted From Cart.'
+  #      redirect_to edit_cart_path
+  #  else
+  #   redirect_to edit_cart_path
+  #  end
+  # end
+
+  @line_item.destroy
+   respond_to do |format|
+     format.html { redirect_to edit_cart_path, notice: 'Item Deleted From Cart.' }
+     format.json { head :no_content }
+   end
   end
- end
 
- # has_attached_file :avatar, styles: {medium: "300x300#", thumb: "100x100#{}"}, default_url: "/images/:style/missing.png"
- #  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
-
- # def product_params
- #   params.require(:product).permit(:name, :price, :quantity, :description, :category_id, :brand_id, :avatar)
+ #  if @line_item.destroy
+ #   session[:line_item_id] = nil
+ #   flash[:notice] = "Your Item Was Successfully Destroyed"
+ #   redirect_to edit_cart_path
+ #  else
+ #   flash[:notice] = "Couldn't Delete Your Item...Sorry!"
+ #   redirect_to edit_cart_path
+ #  end
  # end
+
 end

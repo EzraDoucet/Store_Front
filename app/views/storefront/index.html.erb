@@ -64,8 +64,11 @@
 
 
   <div class="apple_pagination">
-    <% if params[:show_all] == false || params[:show_all] == nil  %>
+    <% if params[:category_id] != nil %>
       <%= will_paginate @products %>
+    <% elsif params[:show_all] == false || params[:show_all] == nil  %>
+      <%= will_paginate @products %>
+
     <% else %>
       <% @products %>
 
