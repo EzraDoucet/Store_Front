@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'stamp'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.1.0'
+gem 'rubocop', '~> 0.51.0', require: false
 
 # ** Style Sheets **
 gem 'font-awesome-rails'
