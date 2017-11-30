@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     if params[:search]
-    @products = Product.all
+    # @products = Product.all
     @products = Product.search_by_name_or_description(params[:search])
       if @products.empty?
         flash.now[:notice] = "No result found for '#{params[:search]}', showing all products."
@@ -17,6 +17,8 @@ class ProductsController < ApplicationController
     elsif params[:category_id]
       @category = Category.find(params[:category_id])
       @products = Product.where(category_id: @category.id)
+    elsif params[:products]
+      @products = Product.all
     else
       @products = Product.all
     end

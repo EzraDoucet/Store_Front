@@ -3,10 +3,20 @@ class LineItem < ApplicationRecord
   belongs_to :cart, optional: true
   belongs_to :order, optional: true
 
+  def update
+  end
 
   def total_price
    price * quantity
   end
+
+  # def increase_quantity
+  #  quantity += 1
+  # end
+
+  # def decrease_quantity
+  #  quantity -= 1
+  # end
 
 end
 

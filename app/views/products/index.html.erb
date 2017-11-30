@@ -13,8 +13,8 @@
       <div class="form-group">
         <%= text_field_tag(:search, params[:search], placeholder: "Search Products", class: 'form_control input-sm') %>
       </div>
-      <%= submit_tag('Search', class: 'btn btn-default btn-sm') %>
-      <div><%= link_to 'See All Products', products_path, class: 'btn btn-default btn-sm' %></div>
+      <p><%= submit_tag('Search', class: 'btn btn-default btn-sm') %></p>
+      <div><%= link_to 'See All Products', products_path(products: "all"), class: 'btn btn-default btn-sm' %></div>
       <% end %>
 
     <thead>

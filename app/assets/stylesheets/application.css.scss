@@ -31,16 +31,19 @@
   }
  }
 
+.clear_fix {
+  clear: both;
 
+}
 .all_link {
 
-  position:absolute;
   left:0;
   right:0;
   margin-left:auto;
   margin-right:auto;
   bottom: 10;
   margin-bottom:auto;
+
 }
 
  // body {
