@@ -50,7 +50,7 @@ gem 'devise'
 #  ** Secrets **
 gem 'figaro'
 
-
+gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -76,7 +76,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'annotate'
-  gem 'faker'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
