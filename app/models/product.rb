@@ -14,7 +14,7 @@ class Product < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def self.search_by_name_or_description(search_string)
-   where("name LIKE ? OR description LIKE ?", "%#{search_string}%", "%#{search_string}%")
+   where("name ILIKE ? OR description ILIKE ?", "%#{search_string}%", "%#{search_string}%")
 
   end
 
