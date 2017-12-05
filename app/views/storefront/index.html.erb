@@ -17,7 +17,7 @@
   <% end %>
 
   <% if @products.empty? %>
-   <h2>There are no products in <%= @category.name %></h2>
+   <h2>There are no products in <%= @category.try(:name) %></h2>
   <% end %>
   <% @products.each do |product| %>
    <div class="col-sm-4">
