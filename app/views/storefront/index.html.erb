@@ -11,7 +11,7 @@
  <div class="row">
   <%# @products = @products.paginate(:page => params[:page], :per_page => 9) %>
   <% if params[:category_id] %>
-   <h3>All <%= @category.name %></h3>
+   <h3>All <%= @category.try(:name) %></h3>
   <% else %>
    <h3>All Products</h3>
   <% end %>
