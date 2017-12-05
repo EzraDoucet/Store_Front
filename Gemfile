@@ -47,6 +47,9 @@ gem "paperclip", "~> 5.0.0"
 # ** User Accounts **
 gem 'devise'
 
+#  ** Secrets **
+gem 'figaro'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
