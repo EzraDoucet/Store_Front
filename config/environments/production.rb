@@ -73,7 +73,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "super_mondo_awesome_store_#{Rails.env}"
 
-  config.action_mailer.raise_delivery_errors = false # added
+  config.action_mailer.raise_delivery_errors = true # added
 
   config.action_mailer.perform_caching = false
 
