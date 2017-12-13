@@ -27,7 +27,8 @@ class OrdersController < ApplicationController
    if @order.save
     Cart.destroy(session[:cart_id])
     session[:cart_id] = nil
-    redirect_to shop_url, notice: 'Thanks For Your Order!'
+    OrderConfirmationMailer.send_order_confirmation(current_user, @order).deliver_now
+    redirect_to @order, notice: 'Thanks For Your Order!'
    else
     render :new
 

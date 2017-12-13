@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :line_items, dependent: :destroy
 
-  PAYMENT_TYPES = ['Check', 'Credit Cart', 'Pay Pal', 'COD', 'Bitcoin']
+  PAYMENT_TYPES = ['Check', 'Credit Card', 'Pay Pal', 'COD', 'Bitcoin']
 
 
   def add_line_items_from_cart(cart)
@@ -12,6 +12,14 @@ class Order < ApplicationRecord
 
    end
   end
+
+
+  def subtotal
+ #  line_items.to_a.sum { |item| item.total }
+ # ^^ Ruby way to find subtotal - inefficient
+
+  line_items.select("SUM(quantity * price) AS sum")[0].sum
+ end
 end
 
 # == Schema Information
