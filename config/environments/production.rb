@@ -72,7 +72,28 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "super_mondo_awesome_store_#{Rails.env}"
+
+  config.action_mailer.raise_delivery_errors = false # added
+
   config.action_mailer.perform_caching = false
+
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } # added then delete
+  config.action_mailer.default_url_options = { host: ENV['domain']} # added
+
+  config.action_mailer.perform_deliveries = true # added
+
+  config.action_mailer.delivery_method = :smtp # added
+
+  # config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: ENV['domain'], # chaned from production to heroku/hosting address
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    user_name: ENV['gmail_username'],
+    password: ENV['gmail_password']
+  } # added
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
